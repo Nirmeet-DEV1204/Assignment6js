@@ -1,1 +1,10 @@
-<p>card</p>
+<div class="card">
+  <img [src]="content.imgURL || 'default-image.png'" alt="Content Image">
+  <div class="content-details">
+    <h2 hover-affect>{{ content.type }}</h2>
+    <p>{{ content.description }}</p>
+    <div class="tags">
+      <span *ngFor="let tag of content.tags" hover-affect>{{ tag }}</span>
+    </div>
+  </div>
+</div>

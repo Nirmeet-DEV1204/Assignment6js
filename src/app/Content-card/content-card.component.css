@@ -1,0 +1,9 @@
+.card h2.hovered {
+    text-decoration: underline;
+    font-weight: bold;
+  }
+  
+  .card .tags span.hovered {
+    font-weight: bold;
+  }
+  
