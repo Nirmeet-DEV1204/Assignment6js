@@ -1,17 +1,19 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { Content } from '../models/content.model';
+import { Component, OnInit } from '@angular/core';
+import { ContentService } from '../favActor.service';
 
 @Component({
-  selector: 'app-create-content',
-  templateUrl: './create-content.component.html',
-  styleUrls: ['./create-content.component.css']
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
-export class CreateContentComponent {
-  newContent: Content = new Content();
-  @Output() contentAdded = new EventEmitter<Content>();
+export class AppComponent implements OnInit {
+  contentItem: any;
 
-  addContent() {
-    this.contentAdded.emit(this.newContent);
-    this.newContent = new Content();
+  constructor(private themedService: ContentService) { }
+
+  ngOnInit() {
+    this.themedService.getItemById(1).subscribe(data => {
+      this.contentItem = data;
+    });
   }
 }
